@@ -1,15 +1,15 @@
 <?php
 
-// config for VendorName/Skeleton
+// config for Laraflow/Plugin
 return [
 
     /*
     |--------------------------------------------------------------------------
-    | Enable Skeleton Routes
+    | Enable Plugin Routes
     |--------------------------------------------------------------------------
     | This setting enable the API will be available or not
     */
-    'enabled' => env('PACKAGE_SKELETON_ENABLED', true),
+    'enabled' => env('PACKAGE_PLUGIN_ENABLED', true),
 
     // ** Model Config Point Do not Remove **//
 

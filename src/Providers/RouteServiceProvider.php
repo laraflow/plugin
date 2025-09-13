@@ -1,6 +1,6 @@
 <?php
 
-namespace VendorName\Skeleton\Providers;
+namespace Laraflow\Plugin\Providers;
 
 use Illuminate\Cache\RateLimiting\Limit;
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\RateLimiter;
 use Illuminate\Support\Facades\Route;
 
-use function VendorName\Skeleton\optional;
+use function Laraflow\Plugin\optional;
 
 class RouteServiceProvider extends ServiceProvider
 {
@@ -22,7 +22,7 @@ class RouteServiceProvider extends ServiceProvider
     {
         $this->configureRateLimiting();
 
-        $root_prefix = Config::get(':vendor_slug.skeleton.root_prefix', '');
+        $root_prefix = Config::get('laraflow.plugin.root_prefix', '');
 
         $this->routes(function () {
 

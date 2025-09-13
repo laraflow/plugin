@@ -1,15 +1,15 @@
 <?php
 
-namespace VendorName\Skeleton;
+namespace Laraflow\Plugin;
 
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\ServiceProvider;
-use VendorName\Skeleton\Commands\InstallSkeletonCommand;
-use VendorName\Skeleton\Providers\EventServiceProvider;
-use VendorName\Skeleton\Providers\RepositoryServiceProvider;
-use VendorName\Skeleton\Providers\RouteServiceProvider;
+use Laraflow\Plugin\Commands\InstallPluginCommand;
+use Laraflow\Plugin\Providers\EventServiceProvider;
+use Laraflow\Plugin\Providers\RepositoryServiceProvider;
+use Laraflow\Plugin\Providers\RouteServiceProvider;
 
-class SkeletonServiceProvider extends ServiceProvider
+class PluginServiceProvider extends ServiceProvider
 {
     /**
      * Register any application services.
@@ -19,7 +19,7 @@ class SkeletonServiceProvider extends ServiceProvider
     public function register()
     {
         $this->mergeConfigFrom(
-            __DIR__.'/../config/skeleton.php', ':vendor_slug.skeleton'
+            __DIR__.'/../config/plugin.php', 'laraflow.plugin'
         );
 
         $this->app->register(RouteServiceProvider::class);
@@ -34,11 +34,11 @@ class SkeletonServiceProvider extends ServiceProvider
     {
         $this->loadMigrationsFrom(__DIR__.'/../database/migrations');
 
-        $this->loadTranslationsFrom(__DIR__.'/../lang', 'skeleton');
+        $this->loadTranslationsFrom(__DIR__.'/../lang', 'plugin');
 
-        $this->loadViewsFrom(__DIR__.'/../resources/views', 'skeleton');
+        $this->loadViewsFrom(__DIR__.'/../resources/views', 'plugin');
 
-        Blade::componentNamespace('VendorName\\Skeleton\\Views\\Components', 'skeleton');
+        Blade::componentNamespace('Laraflow\\Plugin\\Views\\Components', 'plugin');
 
         $this->loadPublishOptions();
 
@@ -50,35 +50,35 @@ class SkeletonServiceProvider extends ServiceProvider
     {
         // Package Configuration
         $this->publishes([
-            __DIR__.'/../config/skeleton.php' => config_path(':vendor_slug/skeleton.php'),
-        ], 'skeleton-config');
+            __DIR__.'/../config/plugin.php' => config_path('laraflow/plugin.php'),
+        ], 'plugin-config');
 
         // Package Translation
         $this->publishes([
-            __DIR__.'/../lang' => $this->app->langPath('vendor/skeleton'),
-        ], 'skeleton-lang');
+            __DIR__.'/../lang' => $this->app->langPath('vendor/plugin'),
+        ], 'plugin-lang');
 
         // Package Blade Views
         $this->publishes([
-            __DIR__.'/../resources/views' => resource_path('views/vendor/:vendor_slug/skeleton'),
-        ], 'skeleton-views');
+            __DIR__.'/../resources/views' => resource_path('views/vendor/laraflow/plugin'),
+        ], 'plugin-views');
 
         // Package Public Assets
         $this->publishes([
-            __DIR__.'/../public' => public_path('vendor/skeleton'),
-        ], 'skeleton-assets');
+            __DIR__.'/../public' => public_path('vendor/plugin'),
+        ], 'plugin-assets');
 
         // Package Database Migrations
         $this->publishes([
             __DIR__.'/../database/migrations/' => database_path('migrations'),
-        ], 'skeleton-migrations');
+        ], 'plugin-migrations');
     }
 
     private function registerCommands()
     {
         if ($this->app->runningInConsole()) {
             $this->commands([
-                InstallSkeletonCommand::class,
+                InstallPluginCommand::class,
             ]);
         }
     }

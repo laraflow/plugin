@@ -1,18 +1,18 @@
 <?php
 
-namespace VendorName\Skeleton\Facades;
+namespace Laraflow\Plugin\Facades;
 
 use Illuminate\Support\Facades\Facade;
 
 /**
  * // Crud Service Method Point Do not Remove //
  *
- * @see \VendorName\Skeleton\Skeleton
+ * @see \Laraflow\Plugin\Plugin
  */
-class Skeleton extends Facade
+class Plugin extends Facade
 {
     protected static function getFacadeAccessor()
     {
-        return \VendorName\Skeleton\Skeleton::class;
+        return \Laraflow\Plugin\Plugin::class;
     }
 }

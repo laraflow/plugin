@@ -1,7 +1,7 @@
 <template>
     <div>
-        <Head title="Welcome to Skeleton" />
-        <h1 class="mb-8 text-3xl font-bold">Welcome to Skeleton</h1>
+        <Head title="Welcome to Plugin" />
+        <h1 class="mb-8 text-3xl font-bold">Welcome to Plugin</h1>
     </div>
 </template>
 

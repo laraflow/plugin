@@ -2,7 +2,7 @@
 
 /*
 |--------------------------------------------------------------------------
-|  Skeleton Language Lines
+|  Plugin Language Lines
 |--------------------------------------------------------------------------
 |
 | The following language lines are used during for various messages
