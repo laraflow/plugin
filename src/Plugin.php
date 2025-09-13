@@ -2,6 +2,8 @@
 
 namespace Laraflow\Plugin;
 
+use Illuminate\Support\Collection;
+
 class Plugin
 {
     private static $instance = null;
@@ -45,6 +47,7 @@ class Plugin
             $this->plugins[$this->classNamespace($path)] = true;
         }
     }
+
     private function classNamespace(string $path): ?string
     {
         $contents = file_get_contents($path);
@@ -66,8 +69,20 @@ class Plugin
         return "{$namespace}\\{$class}";
     }
 
-    public function getPlugins()
+    public function getPlugins(): Collection
     {
+        $entries = collect();
 
+        foreach ($this->plugins as $namespace => $instance) {
+
+            $this->plugins[$namespace] = match (true) {
+                $instance instanceof LaraflowPlugin => $instance,
+                default => new $namespace(app())
+            };
+
+            $entries->push($this->plugins[$namespace]->details());
+        }
+
+        return $entries;
     }
 }
