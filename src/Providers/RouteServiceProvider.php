@@ -5,11 +5,8 @@ namespace Laraflow\Plugin\Providers;
 use Illuminate\Cache\RateLimiting\Limit;
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\RateLimiter;
 use Illuminate\Support\Facades\Route;
-
-use function Laraflow\Plugin\optional;
 
 class RouteServiceProvider extends ServiceProvider
 {
@@ -21,9 +18,6 @@ class RouteServiceProvider extends ServiceProvider
     public function boot()
     {
         $this->configureRateLimiting();
-
-        $root_prefix = Config::get('laraflow.plugin.root_prefix', '');
-
         $this->routes(function () {
 
             Route::prefix('api')

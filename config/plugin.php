@@ -7,22 +7,37 @@ return [
     |--------------------------------------------------------------------------
     | Enable Plugin Routes
     |--------------------------------------------------------------------------
-    | This setting enable the API will be available or not
+    | This setting control plugin should be registered
     */
-    'enabled' => env('PACKAGE_PLUGIN_ENABLED', true),
-
-    // ** Model Config Point Do not Remove **//
+    'enabled' => env('PLUGIN_ENABLED', true),
 
     /*
     |--------------------------------------------------------------------------
-    | Repositories
+    | Plugin Locations
     |--------------------------------------------------------------------------
     |
-    | This value will be used across systems where a repository instance is needed
+    | This value will be used across system to lookup where plugins are located.
+    | the path has to be related to application base directory. System use glob
+    | function to search for plugin file.
     */
 
-    'repositories' => [
-        // ** Repository Binding Config Point Do not Remove **//
+    'locations' => [
+        'include' => [
+            'plugins/*/*',
+            'vendor/*/*',
+        ],
+        'exclude' => [
+//            'vendor/laraflow/plugin'
+        ]
     ],
 
+    /*
+    |--------------------------------------------------------------------------
+    | Bootstrapper
+    |--------------------------------------------------------------------------
+    |
+    | This value will be used to locate root file
+    */
+
+    'bootstrapper' => 'Plugin.php',
 ];

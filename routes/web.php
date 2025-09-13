@@ -1,8 +1,5 @@
 <?php
 
-use Illuminate\Support\Facades\Config;
-use Illuminate\Support\Facades\Route;
-
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -13,12 +10,4 @@ use Illuminate\Support\Facades\Route;
 | is assigned the "API" middleware group. Enjoy building your API!
 |
 */
-if (Config::get('plugin.enabled')) {
-    Route::prefix('plugin')->name('plugin.')->group(function () {
-        Route::get('/', function () {
-            return \Inertia\Inertia::render('index');
-        });
 
-        // DO NOT REMOVE THIS LINE//
-    });
-}

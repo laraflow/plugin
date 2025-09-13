@@ -60,11 +60,9 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Laraflow\\Plugin\\PluginServiceProvider"
-            ],
-            "aliases": {
-                "Plugin": "Laraflow\\Plugin\\Facades\\Plugin"
-            }
+                "Laraflow\\Plugin\\PluginServiceProvider",
+                "Laraflow\\Plugin\\Providers\\PluginAutoloader"
+            ]
         },
         "merge-plugin": {
             "include": [
