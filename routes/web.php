@@ -10,4 +10,3 @@
 | is assigned the "API" middleware group. Enjoy building your API!
 |
 */
-

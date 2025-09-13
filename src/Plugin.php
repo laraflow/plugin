@@ -32,7 +32,7 @@ class Plugin
 
     private function __construct(array $locations, array $exclude, string $bootstrapper)
     {
-        $pattern = '#(' . implode('|', array_map('preg_quote', $exclude)) . ')#i';
+        $pattern = '#('.implode('|', array_map('preg_quote', $exclude)).')#i';
 
         foreach ($locations as $location) {
 

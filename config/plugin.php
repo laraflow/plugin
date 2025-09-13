@@ -27,8 +27,8 @@ return [
             'vendor/*/*',
         ],
         'exclude' => [
-//            'vendor/laraflow/plugin'
-        ]
+            //            'vendor/laraflow/plugin'
+        ],
     ],
 
     /*

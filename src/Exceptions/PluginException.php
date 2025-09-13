@@ -7,7 +7,4 @@ use Exception;
 /**
  * Class PluginException
  */
-class PluginException extends Exception
-{
-
-}
+class PluginException extends Exception {}
