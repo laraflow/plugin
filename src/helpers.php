@@ -2,6 +2,6 @@
 
 namespace Laraflow\Plugin;
 
-if(!function_exists('plugin')) {
+if (! function_exists('plugin')) {
 
 }
