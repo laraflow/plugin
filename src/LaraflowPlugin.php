@@ -20,10 +20,7 @@ abstract class LaraflowPlugin extends ServiceProvider
         return [];
     }
 
-    public function register()
-    {
-
-    }
+    public function register() {}
 
     public function boot()
     {
