@@ -2,6 +2,7 @@
 
 namespace Laraflow\Plugin;
 
+use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\ServiceProvider;
 
 abstract class LaraflowPlugin extends ServiceProvider
@@ -14,7 +15,18 @@ abstract class LaraflowPlugin extends ServiceProvider
 
     abstract public function navigations(): array;
 
-    public function register() {}
+    public function components(): array
+    {
+        return [];
+    }
 
-    public function boot() {}
+    public function register()
+    {
+
+    }
+
+    public function boot()
+    {
+        Blade::components($this->components());
+    }
 }

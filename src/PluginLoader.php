@@ -5,7 +5,7 @@ namespace Laraflow\Plugin\Providers;
 use Illuminate\Support\ServiceProvider;
 use Laraflow\Plugin\Plugin;
 
-class PluginAutoloader extends ServiceProvider
+class PluginLoader extends ServiceProvider
 {
     /**
      * Register services.
